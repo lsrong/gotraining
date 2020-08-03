@@ -1,2 +1,2 @@
-# learnGolang
+# Learning Golang
 Golang learning project
