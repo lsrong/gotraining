@@ -2,6 +2,11 @@ package main
 
 import "fmt"
 
+type User struct {
+	Name string
+	Age  int
+}
+
 func main() {
 	// 变量声明的三种方式
 	var a int
@@ -82,4 +87,12 @@ func main() {
 		// k = 3                    // 此处不能定义缺省常量，会编译错误
 	)
 	fmt.Printf("%d%d%d%d", constG, constH, constI, constJ)
+
+	fmt.Print("\r\n")
+	// 结构体类型变量
+	user := User{
+		"LSRONG",
+		28,
+	}
+	fmt.Printf("输出结构体变量：%+v", user)
 }
