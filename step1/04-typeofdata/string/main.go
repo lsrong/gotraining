@@ -3,7 +3,6 @@ package main
 import (
 	"bytes"
 	"fmt"
-	"strings"
 	"unicode/utf8"
 )
 
@@ -91,9 +90,6 @@ func main() {
 	strBuilder1 := "hello "
 	strBuilder2 := "world"
 	fmt.Println(splice(strBuilder1, strBuilder2))
-
-	//strings 包相关函数
-	fmt.Println(strings.Index(str1, "s")) //索引
 
 }
 

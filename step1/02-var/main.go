@@ -7,7 +7,8 @@ type User struct {
 	Age  int
 }
 
-func main() {
+// 说明
+func information() {
 	// 变量声明的三种方式
 	var a int
 	var b = 10
@@ -95,4 +96,110 @@ func main() {
 		28,
 	}
 	fmt.Printf("输出结构体变量：%+v", user)
+}
+
+// 变量
+func testVar() {
+	/**
+	var a int
+	var b bool
+	var c string
+	var d float32
+	*/
+	var (
+		a int
+		b bool
+		c string
+		d float32
+	)
+
+	fmt.Printf("a=%d,b=%t,c=%s,d=%f", a, b, c, d)
+
+	a = 10
+	b = true
+	c = "hello"
+	d = 0.10
+	fmt.Printf("a=%d,b=%t,c=%s,d=%f", a, b, c, d)
+}
+
+// 常量
+func testConst() {
+	// 定义既赋值 const name [type] = value
+	//const a int = 100
+	//const b string = "hello"
+
+	//fmt.Printf("a=%d", a)
+	//fmt.Printf("b=%s", b)
+
+	//const (
+	//	c int    = 100
+	//	d string = "world"
+	//)
+
+	//fmt.Printf("c=%d", c)
+	//fmt.Printf("d=%s", d)
+
+	const (
+		a int = 100
+		b
+		c string = "hello"
+		d
+	)
+
+	fmt.Printf("a=%d,b=%d,c=%s,d=%s", a, b, c, d)
+
+	// Iota,默认为 0\
+	/**
+	const (
+		e = iota
+		f = iota
+		g = iota
+	)*/
+	const (
+		e = iota
+		f
+		g
+	)
+	fmt.Printf("e=%d,f=%d,g=%d", e, f, g)
+
+	// <<< iota
+	const (
+		h = 1 << iota
+		i
+		j
+	)
+	fmt.Printf("h=%d,i=%d,j=%d", h, i, j)
+}
+
+func main() {
+	//information()
+
+	//testVar()
+
+	//testConst()
+
+	// iota 遇到非iota则会清零
+	const (
+		A = iota
+		B
+		C
+		D = 8
+		E
+		F = iota
+		G
+	)
+	// iota只在一个const生效
+	const (
+		A1 = iota
+		A2
+	)
+	fmt.Println(A)
+	fmt.Println(B)
+	fmt.Println(C)
+	fmt.Println(D)
+	fmt.Println(E)
+	fmt.Println(F)
+	fmt.Println(G)
+	fmt.Println(A1)
+	fmt.Println(A2)
 }
