@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-func main() {
+func testNumber() {
 	/**
 	1.整型:
 	有符号:
@@ -54,6 +54,28 @@ func main() {
 	fmt.Println(math.IsNaN(nan))
 }
 
+// 浮点型比较
 func isFloatEqual(f1, f2, p float64) bool {
 	return math.Abs(f1-f2) < p
+}
+
+func testInt() {
+	var a int8
+	a = 100
+	fmt.Println(a)
+
+	var b int32 = 100
+
+	// 不同数据类型不允许相加，以及赋值操作
+	// 如果需要则需要进行数据转换， typeOfData()
+
+	fmt.Println(int32(a) + b)
+
+	// 占位符： %d , %f
+}
+
+func main() {
+	testNumber()
+
+	testInt()
 }

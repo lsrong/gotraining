@@ -3,10 +3,11 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"strings"
 	"unicode/utf8"
 )
 
-func main() {
+func testString() {
 	/**
 	单个字符(字母)，一般使用 byte 来保存，且使用单引号包裹
 	*/
@@ -100,4 +101,95 @@ func splice(str1 string, str2 string) string {
 	stringBuilder.WriteString(str2)
 
 	return stringBuilder.String()
+}
+
+// 练习
+func testStr() {
+	var a string
+	a = "hello"
+	fmt.Println(a)
+
+	// 赋值
+	b := a
+	fmt.Println(b)
+
+	c := "hello"
+	fmt.Println(c)
+
+	// 不能重新定义
+	//c := "test"
+
+	// 占位符号： %s
+	fmt.Printf("a=%s,b=%s,c=%s", a, b, c)
+
+	// 万能(自动匹配数据类型)占位符号： %v
+	fmt.Printf("a=%v,b=%v,c=%v", a, b, c)
+
+	// 反引号 ``,原样输出
+	var d = "d:\nworld"
+	fmt.Println(d)
+	f := `
+Output as it is
+`
+	fmt.Print(f)
+
+	// 长度：len
+	g := "len"
+	gLen := len(g)
+	fmt.Printf("Length of g is %d", gLen)
+}
+
+// 字符串常用操作
+func strOperation() {
+	// 拼接：+ , fmt.Sprintf()
+	h := f + g
+	fmt.Println(h)
+
+	i := fmt.Sprintf("%s%s", f, g)
+	fmt.Println(i)
+
+	// 分隔: strings.Splice(string, flagStr) 返回数组
+	ips := "192.168.1.11;192.168.1.66"
+	ipSplice := strings.Split(ips, ";")
+	fmt.Printf("first ip: %s \n", ipSplice[0])
+	fmt.Printf("second ip: %s \n", ipSplice[1])
+
+	// 包含：strings.Contains(str, flagStr)
+	result := strings.Contains(ips, "192.168.1.66")
+	fmt.Println(result)
+
+	// 前缀strings.HasPrefix，后缀strings.HasSuffix
+	str := "http://www.baidu.com,baidu"
+	if strings.HasPrefix(str, "http") {
+		fmt.Println("str is http url")
+	} else {
+		fmt.Println("str is not http url")
+	}
+	if strings.HasSuffix(str, "baidu.com") {
+		fmt.Println("str is baidu url")
+	} else {
+		fmt.Println("str is not baidu url")
+	}
+
+	// 出现位置：首位：string.Index(str, flag),末尾strings.LastIndex(str,flag)
+	index := strings.Index(str, "baidu")
+	fmt.Printf("First index of baidu:%d \n", index)
+
+	lastIndex := strings.LastIndex(str, "baidu")
+	fmt.Printf("Last index of baidu:%d \n", lastIndex)
+
+	// 数组转成字符
+	var strArr = []string{"192.168.1.1", "192.168.1.2"}
+	joinStr := strings.Join(strArr, ";")
+
+	fmt.Println(joinStr)
+}
+
+func main() {
+	// 基本定义
+	testString()
+	testStr()
+
+	// 常用操作
+	strOperation()
 }
