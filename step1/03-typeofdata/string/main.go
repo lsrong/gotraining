@@ -142,6 +142,7 @@ Output as it is
 // 字符串常用操作
 func strOperation() {
 	// 拼接：+ , fmt.Sprintf()
+	f, g := "hello", "world"
 	h := f + g
 	fmt.Println(h)
 

@@ -202,4 +202,10 @@ func main() {
 	fmt.Println(G)
 	fmt.Println(A1)
 	fmt.Println(A2)
+
+	// 同时赋值
+	a, b := 100, "hello"
+
+	a, b = 1000, "world"
+	fmt.Printf("a=%d,b=%s \n", a, b)
 }
