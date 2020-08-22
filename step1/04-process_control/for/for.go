@@ -5,7 +5,8 @@ import (
 	"time"
 )
 
-// for： for initialisation; condition;post{}
+// for基本用法
+// for initialisation; condition;post{}
 func testBaseFor() {
 	for i := 1; i <= 10; i++ {
 		fmt.Println(time.Now().Format("2006-01-02 15:04:05"))
@@ -14,7 +15,7 @@ func testBaseFor() {
 	}
 }
 
-// break
+// 跳出循环，break
 func testBreak() {
 	for i := 1; i <= 10; i++ {
 		if i > 5 {
@@ -25,7 +26,7 @@ func testBreak() {
 	}
 }
 
-// Continue
+// 中止执行当前循环Continue
 func testContinue() {
 	for i := 0; i < 10; i++ {
 		if i%2 != 0 {
@@ -79,7 +80,7 @@ func multiplicationTable() {
 }
 
 func main() {
-	//testBaseFor()
+	testBaseFor()
 
 	testBreak()
 
