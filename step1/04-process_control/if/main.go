@@ -138,9 +138,9 @@ func getNum() int {
 // 执行函数 + 判断
 func testIf3() {
 	if num := getNum(); num%2 == 0 {
-		fmt.Println("The value of 'getNum()' func id even")
+		fmt.Println("The value of 'getNum()' 05-func id even")
 	} else {
-		fmt.Println("The value of 'getNum()' func id odd")
+		fmt.Println("The value of 'getNum()' 05-func id odd")
 	}
 }
 
