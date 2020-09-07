@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"sort"
+	"time"
+)
 
 // key-value的数据结构, map必须初始化才能使⽤
 func initMap() {
@@ -82,6 +87,51 @@ func deleteMap() {
 	fmt.Println(a)
 }
 
+// map的⻓度
+func lenMap() {
+	a := map[int]string{
+		0: "hello",
+		1: "world",
+		2: "go",
+	}
+	a[3] = "test"
+	fmt.Println("map length is ", len(a))
+}
+
+// map是引⽤类型
+func modifyMap(a map[string]string) {
+	a["hello"] = "world"
+}
+func testModifyMap() {
+	a := map[string]string{
+		"test": "content",
+	}
+	fmt.Println("Before modify ", a)
+	modifyMap(a)
+	fmt.Println("After modify ", a)
+}
+
+// 默认情况下，map并不是按照key有序进⾏遍历
+// 建立临时keys数组，键值数组排序，然后循环根据键数组输出map值
+func sortMap() {
+	rand.Seed(time.Now().UnixNano())
+	a := make(map[int]string, 10)
+	for i := 0; i < 10; i++ {
+		a[i] = fmt.Sprintf("value_%d", i)
+	}
+	//fmt.Println(a)
+	keys := make([]int, 0, 10)
+	for i, v := range a {
+		fmt.Printf("map[%d]=%s\n", i, v)
+		keys = append(keys, i)
+	}
+
+	sort.Ints(keys)
+	for _, mapKey := range keys {
+		fmt.Printf("map[%d]=%s\n", mapKey, a[mapKey])
+	}
+}
+
 func main() {
 	initMap()
 	fmt.Println("------------")
@@ -92,4 +142,10 @@ func main() {
 	forMap()
 	fmt.Println("------------")
 	deleteMap()
+	fmt.Println("------------")
+	lenMap()
+	fmt.Println("------------")
+	testModifyMap()
+	fmt.Println("------------")
+	sortMap()
 }
