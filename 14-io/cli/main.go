@@ -35,5 +35,5 @@ func main() {
 		fmt.Println("language is ", language)
 		return nil
 	}
-	app.Run(os.Args)
+	_ = app.Run(os.Args)
 }
