@@ -9,9 +9,23 @@ const (
 	FatalLevel
 )
 
+const (
+	Format       string = "%s %s (%s:%s:%d) %s\n"
+	DefaultLevel string = "debug"
+)
+
+type Data struct {
+	Level    string `json:"level"`
+	Datetime string `json:"datetime"`
+	Message  string `json:"message"`
+	File     string `json:"file"`
+	Line     int    `json:"line"`
+	Func     string `json:"func"`
+}
+
 // 定义日志驱动接口
 type loggerInterface interface {
-	Write(level int, format string, args ...interface{})
+	Log(level int, format string, args ...interface{})
 	Debug(format string, args ...interface{})
 	Trace(format string, args ...interface{})
 	Info(format string, args ...interface{})

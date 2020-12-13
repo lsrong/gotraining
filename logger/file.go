@@ -7,25 +7,16 @@ import (
 	"time"
 )
 
-const (
-	DefaultLevel = "debug"
-)
-
-type data struct {
-	Message string `json:"message"`
-	File    string `json:"file"`
-	Line    string `json:"line"`
-	Func    string `json:"func"`
-	Level   string `json:"level"`
-}
+const ChanNum = 10000
 
 type FileLogger struct {
 	file  *os.File
 	path  string
 	level int
-	//data  chan *data
+	data  chan *Data
 }
 
+// 构造文件日志处理类
 func NewFileLogger(config map[string]string) (*FileLogger, error) {
 	// 日志路径
 	path, ok := config["path"]
@@ -45,6 +36,7 @@ func NewFileLogger(config map[string]string) (*FileLogger, error) {
 	log := &FileLogger{
 		level: level,
 		path:  path,
+		data:  make(chan *Data, ChanNum),
 	}
 
 	err := log.Init()
@@ -56,6 +48,7 @@ func NewFileLogger(config map[string]string) (*FileLogger, error) {
 	return log, nil
 }
 
+// 初始化操作
 func (f *FileLogger) Init() error {
 	filename := fmt.Sprintf("%s/golang-%s.log", f.path, time.Now().Format("2006-01-02"))
 	file, err := os.OpenFile(filename, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0755)
@@ -63,69 +56,68 @@ func (f *FileLogger) Init() error {
 		return fmt.Errorf("Failed to open log file[%s]", filename)
 	}
 	f.file = file
+
+	// 后台写入
+	go f.WriteBackground()
 	return nil
 }
 
-func (f *FileLogger) checkLevel(level int) bool {
-	if f.level <= level {
-		return false
+// 文件统一写入入口
+func (f *FileLogger) Log(level int, format string, args ...interface{}) {
+	if f.level > level {
+		return
 	}
-	return true
+	// 日志数据
+	data := LogData(level, format, args...)
+
+	// 日志格式：fmt.Fprintf(file, "%s %s (%s:%s:%d) %s\n", nowStr, levelStr, fileName, funcName, lineNo, msg)
+	_, _ = f.file.WriteString(fmt.Sprintf(Format, data.Datetime, data.Level, data.File, data.Func, data.Line, data.Message))
+
+	// 放入日志数据管道
+	//select {
+	//case f.data <- data:
+	//default:
+	//}
 }
 
-func (f *FileLogger) Write(level int, format string, args ...interface{}) {
-	filename, function, line := Info()
-	datetime := time.Now().Format("2006-01-02 15:04:05")
-	levelStr := GetLevelStr(level)
-	message := fmt.Sprintf(format, args...)
-	// fmt.Fprintf(file, "%s %s (%s:%s:%d) %s\n", nowStr, levelStr, fileName, funcName, lineNo, msg)
-
-	_, _ = f.file.WriteString(fmt.Sprintf("%s %s (%s:%s:%d) %s\n", datetime, levelStr, filename, function, line, message))
+// TODO 后台协程应用
+func (f *FileLogger) WriteBackground() {
+	for data := range f.data {
+		_, _ = f.file.WriteString(fmt.Sprintf(Format, data.Datetime, data.Level, data.File, data.Func, data.Line, data.Message))
+	}
 }
 
+// DEBUG 日志
 func (f *FileLogger) Debug(format string, args ...interface{}) {
-	if f.checkLevel(DebugLevel) {
-		return
-	}
-	f.Write(DebugLevel, format, args...)
+	f.Log(DebugLevel, format, args...)
 }
 
+// TRACE 日志
 func (f *FileLogger) Trace(format string, args ...interface{}) {
-	if f.checkLevel(TraceLevel) {
-		return
-	}
-	f.Write(TraceLevel, format, args...)
+	f.Log(TraceLevel, format, args...)
 }
 
+// INFO 日志
 func (f *FileLogger) Info(format string, args ...interface{}) {
-	if f.checkLevel(InfoLevel) {
-		return
-	}
-	f.Write(InfoLevel, format, args...)
+	f.Log(InfoLevel, format, args...)
 }
 
+// WARNING 日志
 func (f *FileLogger) Warning(format string, args ...interface{}) {
-	if f.checkLevel(WarningLevel) {
-		return
-	}
-
-	f.Write(WarningLevel, format, args...)
+	f.Log(WarningLevel, format, args...)
 }
+
+// ERROR 日志
 func (f *FileLogger) Error(format string, args ...interface{}) {
-	if f.checkLevel(ErrorLevel) {
-		return
-	}
-	f.Write(ErrorLevel, format, args...)
+	f.Log(ErrorLevel, format, args...)
 }
 
+// FATAL 日志
 func (f *FileLogger) Fatal(format string, args ...interface{}) {
-	if f.checkLevel(FatalLevel) {
-		return
-	}
-
-	f.Write(FatalLevel, format, args...)
+	f.Log(FatalLevel, format, args...)
 }
 
+// 关闭文件句柄
 func (f *FileLogger) Close() {
 	f.file.Close()
 }
