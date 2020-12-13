@@ -27,7 +27,7 @@ func NewConsoleLogger(config map[string]string) (*ConsoleLogger, error) {
 
 // 写日志入口
 func (c *ConsoleLogger) Log(level int, format string, args ...interface{}) {
-	if c.level <= level {
+	if c.level > level {
 		return
 	}
 	// 日志数据

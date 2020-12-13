@@ -17,4 +17,9 @@ func main() {
 	file.Fatal("Fatal log")
 
 	//defer file.Close()
+	consoleConfig := map[string]string{
+		"level": "debug",
+	}
+	console, _ := logger.NewConsoleLogger(consoleConfig)
+	console.Debug("debug log[%s]", "hello world")
 }
