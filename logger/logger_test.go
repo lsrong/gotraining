@@ -7,7 +7,7 @@ import (
 // 测试文件日志
 func TestFileLogger(t *testing.T) {
 	config := map[string]string{
-		"path":  "D:\\test",
+		"path":  "/Users/lsrong/Work/Project/Test",
 		"level": "debug",
 	}
 	file, _ := NewFileLogger(config)
