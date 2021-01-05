@@ -58,7 +58,7 @@ func (f *FileLogger) Init() error {
 	f.file = file
 
 	// 后台写入
-	go f.WriteBackground()
+	//go f.WriteBackground()
 	return nil
 }
 
