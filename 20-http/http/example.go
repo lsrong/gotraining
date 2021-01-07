@@ -3,6 +3,7 @@ package http
 import (
 	"fmt"
 	"net"
+	"net/http"
 )
 
 func Start() {
@@ -33,4 +34,17 @@ func Progress(connect net.Conn) {
 		}
 		fmt.Printf("recv from connect:%s", string(buffer[:n]))
 	}
+}
+
+// Hello demo
+func echoHello(w http.ResponseWriter, r *http.Request) {
+	_ = r.ParseForm()
+	_, _ = fmt.Fprintf(w, "url path:%s\n", r.URL.Path)
+	_, _ = fmt.Fprintf(w, "host:%s\n", r.Host)
+	_, _ = fmt.Fprintf(w, "hello world\n")
+}
+
+func Hello() {
+	http.HandleFunc("/", echoHello)
+	_ = http.ListenAndServe(":10000", nil)
 }
