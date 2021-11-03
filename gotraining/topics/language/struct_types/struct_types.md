@@ -24,13 +24,13 @@ A computer architecture’s potential performance is determined predominantly by
 
 ## Code Review
 
-[Declare, create and initialize struct types](example1/example1.go) ([Go Playground](https://play.golang.org/p/djzGT1JtSwy))  
-[Anonymous struct types](example2/example2.go) ([Go Playground](https://play.golang.org/p/09cxjnmfcdC))  
-[Named vs Unnamed types](example3/example3.go) ([Go Playground](https://play.golang.org/p/ky91roJDjir))
+[Declare, create and initialize struct types](example2/example2.go) ([Go Playground](https://play.golang.org/p/djzGT1JtSwy))  
+[Anonymous struct types](example3/example3.go) ([Go Playground](https://play.golang.org/p/09cxjnmfcdC))  
+[Named vs Unnamed types](example4/example4.go) ([Go Playground](https://play.golang.org/p/ky91roJDjir))
 
 ## Advanced Code Review
 
-[Struct type alignments](advanced/example1/example1.go) ([Go Playground](https://play.golang.org/p/rAvtS7cgD0z))
+[Struct type alignments](example1/example1.go) ([Go Playground](https://play.golang.org/p/rAvtS7cgD0z))
 
 ## Exercises
 
@@ -40,8 +40,4 @@ A computer architecture’s potential performance is determined predominantly by
 
 **Part B:** Declare and initialize an anonymous struct type with the same three fields. Display the value.
 
-[Template](exercises/template1/template1.go) ([Go Playground](https://play.golang.org/p/h-7BEn2U3Rz)) |
-[Answer](exercises/exercise1/exercise1.go) ([Go Playground](https://play.golang.org/p/eT_gLZKeHk-))
-___
-All material is licensed under the [Apache License Version 2.0, January 2004](http://www.apache.org/licenses/LICENSE-2.0).
-
+[Answer](exercise1/exercise1.go) ([Go Playground](https://play.golang.org/p/eT_gLZKeHk-))
