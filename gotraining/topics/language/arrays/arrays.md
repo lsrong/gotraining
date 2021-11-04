@@ -29,20 +29,21 @@ Arrays are a special data structure in Go that allow us to allocate contiguous b
 ## Code Review 代码练习
 
 [Declare, initialize and iterate 声明、初始化和迭代](example/declare-initialize/declare-initialize.go)  
-[Different type arrays](example2/example2.go)  
-[Contiguous memory allocations](example3/example3.go)    
-[Range mechanics](example4/example4.go)  
+[Different type arrays](example/different-type/different-type.go)  
+[Contiguous memory allocations](example/contiguous-memory-allocations/contiguous-memory-allocations.go)    
+[Range mechanics](example/range/range.go)  
 
 ## Exercises
 
 ### Exercise 1
 
 Declare an array of 5 strings with each element initialized to its zero value. Declare a second array of 5 strings and initialize this array with literal string values. Assign the second array to the first and display the results of the first array. Display the string value and address of each element.
+声明一个包含 5 个字符串的数组，每个元素都初始化为零值。  
+声明第二个包含 5 个字符串的数组，并使用文字字符串值初始化该数组。  
+将第二个数组分配给第一个数组并显示第一个数组的结果。  
+显示每个元素的字符串值和地址。  
 
-[Template](exercises/template1/template1.go) ([Go Playground](https://play.golang.org/p/yURUYyZ5_hA)) |
-[Answer](exercises/exercise1/exercise1.go) ([Go Playground](https://play.golang.org/p/VtuGj8S-K2l))
-___
-All material is licensed under the [Apache License Version 2.0, January 2004](http://www.apache.org/licenses/LICENSE-2.0).
+[Exercise](exercise/exercise.go)
 
 
 ## CPU Cache/Memory相关资料   
