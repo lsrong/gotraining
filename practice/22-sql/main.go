@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/learning_golang/basic/22-sql/mysql"
+	"github.com/learning_golang/practice/22-sql/mysql"
 )
 
 func main() {

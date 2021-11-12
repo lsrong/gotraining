@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/learning_golang/basic/23-gin/example"
+	"github.com/learning_golang/practice/23-gin/example"
 )
 
 func main() {

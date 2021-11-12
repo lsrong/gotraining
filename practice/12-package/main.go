@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/learning_golang/basic/12-package/calculator"
+	"github.com/learning_golang/practice/12-package/calculator"
 )
 
 func init() {

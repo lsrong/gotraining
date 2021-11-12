@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/learning_golang/basic/19-goruntine/workpool"
+	"github.com/learning_golang/practice/19-goruntine/workpool"
 )
 
 func main() {

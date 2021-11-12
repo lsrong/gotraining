@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/learning_golang/basic/05-function/visible"
+	"github.com/learning_golang/practice/05-function/visible"
 )
 
 // 1. 变量作用域：全局变量和局部变量

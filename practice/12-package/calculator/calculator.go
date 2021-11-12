@@ -2,7 +2,7 @@ package calculator
 
 import (
 	"fmt"
-	"github.com/learning_golang/basic/12-package/sub"
+	"github.com/learning_golang/practice/12-package/sub"
 )
 
 func Add(a, b int) int {

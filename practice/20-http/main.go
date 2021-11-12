@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/learning_golang/basic/20-http/http"
+	"github.com/learning_golang/practice/20-http/http"
 )
 
 func main() {

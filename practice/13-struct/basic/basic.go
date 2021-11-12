@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/learning_golang/basic/13-struct/construct"
+	"github.com/learning_golang/practice/13-struct/construct"
 )
 
 // 基本定义:⾯向对象是通过struct来实现的, struct是⽤户⾃定义的类型

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/learning_golang/basic/13-struct/practice/student"
+	"github.com/learning_golang/practice/13-struct/practice/student"
 	"os"
 	"time"
 )
