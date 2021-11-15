@@ -9,8 +9,10 @@ A computer architecture’s potential performance is determined predominantly by
 ## Notes
 * We can use the struct literal form to initialize a value from a struct type.
 * 我们可以使用结构体字面量形式来初始化结构体类型的值。
+* 
 * The dot (`.`) operator allows us to access individual field values.
 * 点 (`.`) 运算符允许我们访问单个字段值。
+* 
 * We can create anonymous structs.
 * 我们可以创建匿名结构。
 

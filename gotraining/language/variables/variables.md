@@ -6,16 +6,22 @@ Variables are at the heart of the language and provide the ability to read from 
 ## Notes 重点
 * The purpose of all programs and all parts of those programs is to transform data from one form to the other.
 * 所有程序及其所有部分的目的是将数据从一种形式转换为另一种形式。
+* 
 * Code primarily allocates, reads and writes to memory.
 * 代码主要分配、读取和写入内存。
+* 
 * Understanding type is crucial to writing good code and understanding code.
 * 理解类型对于编写好的代码和理解代码至关重要。
+* 
 * If you don't understand the data, you don't understand the problem.
 * 如果你不理解数据，你就不会理解问题。
+* 
 * You understand the problem better by understanding the data.
 * 通过了解数据，您可以更好地理解问题。
+* 
 * When variables are being declared to their zero value, use the keyword `var`.
 * 当变量被声明为零值时，使用关键字 `var`。
+* 
 * When variables are being declared and initialized, use the short variable declaration operator `:=`.
 * 在声明和初始化变量时，使用短变量声明运算符`:=`。
 
