@@ -7,12 +7,25 @@ Composition goes beyond the mechanics of type embedding and is more than just a 
 ## Notes
 
 * This is much more than the mechanics of type embedding.
+* 这不仅仅是类型嵌入的机制。
+* 
 * Declare types and implement workflows with composition in mind.
+* 声明类型并实施工作流时考虑到组合。
+* 
 * Understand the problem you are trying to solve first. This means understanding the data.
+* 首先了解您要解决的问题。这意味着理解数据。
+* 
 * The goal is to reduce and minimize cascading changes across your software.
+* 目标是减少和最小化整个软件的级联更改。
+* 
 * Interfaces provide the highest form of composition.
+* 接口提供了最高形式的组合
+* 
 * Don't group types by a common DNA but by a common behavior.
+* 不要根据共同的 属性(DNA) 来分组类型，而是根据共同的行为。
+* 
 * Everyone can work together when we focus on what we do and not what we are.
+* 当我们专注于我们所做的而不是我们自己时，每个人都可以一起工作。
 
 ## Quotes
 
