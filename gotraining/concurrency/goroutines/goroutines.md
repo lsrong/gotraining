@@ -50,7 +50,7 @@ _"By default, goroutines shouldn't outlive the function they were created from. 
 ## Code Review
 
 [Goroutines and concurrency](example/goroutine_concurrency/goroutine_concurrency.go) ([Go Playground](https://play.golang.org/p/4n6G3uRDc83))  
-[Goroutine time slicing](example2/example2.go) ([Go Playground](https://play.golang.org/p/QtNVo1nb4uQ))  
+[Goroutine time slicing](example/goroutine_time_slicing/goroutine_time_slicing.go) ([Go Playground](https://play.golang.org/p/QtNVo1nb4uQ))  
 
 ## Exercises
 
@@ -60,8 +60,5 @@ _"By default, goroutines shouldn't outlive the function they were created from. 
 
 **Part B** Run the program in parallel.
 
-[Template](exercises/template1/template1.go) ([Go Playground](https://play.golang.org/p/O0FB2gd6-7d)) |
-[Answer](exercises/exercise1/exercise1.go) ([Go Playground](https://play.golang.org/p/uZlHjwf2CXY))
-___
-All material is licensed under the [Apache License Version 2.0, January 2004](http://www.apache.org/licenses/LICENSE-2.0).
-""
+[Template](exercise/template1/template1.go) ([Go Playground](https://play.golang.org/p/O0FB2gd6-7d)) |
+[Answer](exercise/exercise1/exercise1.go) ([Go Playground](https://play.golang.org/p/uZlHjwf2CXY))
