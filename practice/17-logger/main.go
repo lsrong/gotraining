@@ -1,6 +1,6 @@
 package main
 
-import "github.com/learning_golang/logger"
+import "github.com/learning_golang/practice/logger"
 
 func main() {
 	config := map[string]string{

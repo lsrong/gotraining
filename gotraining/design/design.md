@@ -8,7 +8,7 @@ This material covers the essential things you need to know about designing softw
 [Composition](composition/composition.md)
 
 ### Error Handling
-[Error Handling](../../../go/design/error_handling/README.md)
+[Error Handling](error_handling/error_handling.md)
 
 #### Packaging
-[Packaging](../../../go/design/packaging/README.md)
+[Packaging]()

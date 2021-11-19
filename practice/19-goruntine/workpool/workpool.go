@@ -2,8 +2,9 @@ package workpool
 
 import (
 	"fmt"
-	"github.com/learning_golang/logger"
 	"math/rand"
+
+	"github.com/learning_golang/practice/logger"
 )
 
 // 计算数字
