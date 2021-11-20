@@ -5,7 +5,7 @@ This material covers all the concurrency aspects of the language. Once you are d
 *Note: This material has been designed to be taught in a classroom environment. The code is well commented but missing some of the contextual concepts and ideas that will be covered in class.*
 
 #### Language Mechanics
-[Goroutines](../../../go/concurrency/goroutines/README.md) |
+[Goroutines](goroutines/goroutines.md) |
 [Data Races](../../../go/concurrency/data_race/README.md) |
 [Channels](../../../go/concurrency/channels/README.md)
 
