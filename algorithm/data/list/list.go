@@ -8,6 +8,8 @@ import (
 type Node struct {
 	data interface{}
 	next *Node
+
+	list *List
 }
 
 func (n *Node) Next() *Node {
@@ -98,4 +100,12 @@ func (l *List) RemoveAfter(element *Node) (*Node, error) {
 
 func (l *List) Len() int {
 	return l.size
+}
+
+func (l *List) Head() *Node {
+	return l.head
+}
+
+func (l *List) Tail() *Node {
+	return l.tail
 }
