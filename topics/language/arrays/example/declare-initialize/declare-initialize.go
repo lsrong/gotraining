@@ -29,4 +29,15 @@ func main() {
 		fmt.Println(i, numbers[i])
 	}
 
+	// 不同的定义数组方式
+	displayArr()
+}
+
+func displayArr() {
+	// ... 根据初始化给定的元素设置数组,未初始化会自动设置为零值
+	b := [...]int{1, 2, 3, 4} //透過初始化給的元素數量來給定長度
+	fmt.Println(b, len(b))    // [1 2 3 4] 4
+
+	v := [...]int{1: 2, 3: 4} //透過索引初始化元素, 沒被初始化的就是該類型的預設值
+	fmt.Println(v, len(v))    // [0 2 0 4] 4
 }
