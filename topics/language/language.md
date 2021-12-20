@@ -18,5 +18,5 @@ This material covers all the language syntax, idioms, implementation and specifi
 #### Decoupling
 [Methods](methods/methods.md) |
 [Interfaces](interfaces/interfaces.md) |
-[Embedding](../../../go/language/embedding/README.md) |
-[Exporting](../../../go/language/exporting/README.md)
+[Embedding](embedding/embedding.md) |
+[Exporting](exporting/exporting.md)
