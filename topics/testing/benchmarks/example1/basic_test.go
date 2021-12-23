@@ -4,13 +4,6 @@ package example1
 
 // go test -run none -bench . --benchtime 3s --benchmem
 
-import (
-	"fmt"
-	"testing"
-)
-
-var gs string
-
 /**
 lsrong@lsrong-Mac basic % go test -run none -bench . --benchtime 3s --benchmem
 goos: darwin
@@ -30,6 +23,14 @@ BenchmarkName-8: 基础测试运行时对应的GOMAXPROCS的值（8）
 5 B/op： 每次测试调用的内存分配字节数。
 1 allocs/op： 每次测试调用分配内存次数。
 */
+
+import (
+	"fmt"
+	"testing"
+)
+
+var gs string
+
 func BenchmarkSprint(b *testing.B) {
 	var s string
 	for i := 0; i < b.N; i++ {

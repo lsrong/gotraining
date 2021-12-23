@@ -1,15 +1,17 @@
 ## Benchmarking
+硬件的角度理解影响性能的因素。
 
 Go has support for testing the performance of your code.
 
 ## Package Review
 
 [Basic Benchmarking](example1/basic_test.go)  
-[Sub Benchmarks](sub/sub_test.go)  
-[Validate Benchmarks](validate/validate_test.go)  
-[Prediction](prediction/README.md)  
-[Caching](caching/README.md)  
-[False Sharing](falseshare/README.md)
+[Sub Benchmarks](example1/sub_test.go)  
+[Validate Benchmarks](example3/merge_sort_validate_test.go)  
+[Prediction](prediction/prediction.md)  
+[Caching](caching/caching.md)  
+[False Sharing](falsesharing/Readme.md)
+[CPU-Bound](falsesharing/Readme.md)
 
 _Look at the profiling topic to learn more about using benchmarks to [profile](../../profiling/README.md) code._
 
