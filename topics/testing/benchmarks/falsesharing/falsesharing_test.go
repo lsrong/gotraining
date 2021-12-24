@@ -32,6 +32,7 @@ func BenchmarkGlobal(b *testing.B) {
 		for g := 0; g < grs; g++ {
 			go func(i int) {
 				for {
+					// 访问全局的变量。
 					countersPad[i].counter++
 
 					// 结束计数
@@ -55,7 +56,7 @@ func BenchmarkLocal(b *testing.B) {
 			go func(i int) {
 				var counter int64
 				for {
-					// 利用局部变量计数
+					// 利用局部变量计数。
 					counter++
 
 					if counter%1e6 == 0 {

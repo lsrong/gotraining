@@ -10,6 +10,7 @@ import (
 )
 
 //  了解您的工作负载对于了解是否可以并发执行以及执行起来有多复杂至关重要.
+// CPU-Bound：这项工作永远不会造成线程可能处于等待状态的情况。这是一项不断进行计算的工作。将 Pi 计算到第 N 位的线程将受 CPU 限制。
 
 func init() {
 	rand.Seed(time.Now().UnixNano())
@@ -44,6 +45,7 @@ func add(numbers []int) int {
 // 并发统计所有元素的总数
 func addConcurrent(goroutines int, numbers []int) int {
 	var counter int64
+	// 用并发分段统计.平均分配统计数量给每一个goroutine。
 	totalNumber := len(numbers)
 	step := totalNumber / goroutines
 	var wg sync.WaitGroup
