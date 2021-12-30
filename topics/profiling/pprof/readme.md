@@ -2,9 +2,13 @@
 
 Using the http/pprof support you can profile your web applications and services to see exactly where your performance or memory is being taken.
 
+使用 http/ppprof 支持，您可以分析您的 Web 应用程序和服务，以准确了解您的性能或内存被占用的位置。
+
 ### Building and Running the Project
 
 We have a website that we will use to learn and explore more about profiling. This project is just creating a struct type value, marshaling it to JSON and using that as the response.
+
+我们有一个网站，我们将用它来学习和探索更多关于分析的信息。该项目只是创建一个结构类型值，将其编组为 JSON 并将其用作响应。
 
 Build and run the example program.
 
@@ -18,7 +22,7 @@ Test it is working.
 To add load to the service while running profiling we can run these command.
 
 	// Send 1M request using 8 connections.
-	$ hey -m POST -c 8 -n 1000000 "http://localhost:4000/sendjson"
+	$ hey -m POST -c 8 -n 1000000 "http://localhost:4000/json"
 
 ### Raw http/pprof
 
@@ -51,6 +55,29 @@ At the top of the heap profile you will see this information.
 	[3545424] 	    Amount of memory occupied by all allocations
 
 At the bottom of the heap profile you will see this information.
+
+```
+# Alloc = 1726448
+# TotalAlloc = 641977528
+# Sys = 20317192
+# Lookups = 0
+# Mallocs = 6586775
+# Frees = 6573180
+# HeapAlloc = 1726448
+# HeapSys = 11403264
+# HeapIdle = 8331264
+# HeapInuse = 3072000
+# HeapReleased = 5505024
+# HeapObjects = 13595
+# Stack = 1179648 / 1179648
+# MSpan = 134232 / 163840
+# MCache = 9600 / 16384
+# BuckHashSys = 1449824
+# GCSys = 4711680
+# OtherSys = 1392552
+# NextGC = 4194304
+# LastGC = 1640659868556758000
+```
 
 General statistics.
 
