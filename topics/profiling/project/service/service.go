@@ -6,29 +6,28 @@ import (
 	"os"
 	"os/signal"
 	"time"
-
-	"github.com/lsrong/kit/web"
 )
 
 // Start 启动服务，绑定到指定的端口并开始监听请求
 func Start() {
 	shutdown := make(chan os.Signal, 1)
 	signal.Notify(shutdown, os.Interrupt)
-	api := web.NewServer(shutdown)
+
+	fs := http.FileServer(http.Dir("static"))
+	http.StripPrefix("/static/", fs)
+
 	// 定义服务路由
-	api.Handle("POST", "", "/search", searchHandler)
-	api.Handle("GET", "", "/search", searchHandler)
-	api.Handle("GET", "", "/static/*filepath", staticHandler)
-	api.Handle("GET", "", "/", indexHandler)
+	http.HandleFunc("/search", searchHandler)
+	http.HandleFunc("/", indexHandler)
 
 	// 服务参数配置：ip,端口，超时时间
 	host := "localhost:4000"
 	readTimeout := 10 * time.Second
-	writeTimeout := 30 * time.Second
+	writeTimeout := 60 * time.Second
 	idleTimeout := 60 * time.Second
 	svc := http.Server{
 		Addr:           host,
-		Handler:        api,
+		Handler:        http.DefaultServeMux,
 		ReadTimeout:    readTimeout,
 		WriteTimeout:   writeTimeout,
 		MaxHeaderBytes: 1 << 20,

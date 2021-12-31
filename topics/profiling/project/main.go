@@ -1,8 +1,12 @@
 package main
 
 import (
+	"expvar"
 	"log"
+	_ "net/http/pprof"
 	"os"
+	"runtime"
+	"time"
 
 	"github.com/learning_golang/topics/profiling/project/service"
 )
@@ -15,7 +19,18 @@ func init() {
 	log.SetOutput(os.Stdout)
 }
 
+func expvars() {
+	// Add goroutine counts to the variable set.
+	gr := expvar.NewInt("Goroutines")
+	go func() {
+		for _ = range time.Tick(time.Millisecond * 250) {
+			gr.Set(int64(runtime.NumGoroutine()))
+		}
+	}()
+}
+
 // main 应用程序入口
 func main() {
+	expvars()
 	service.Start()
 }

@@ -1,36 +1,27 @@
 package service
 
 import (
-	"context"
+	"fmt"
 	"html/template"
 	"net/http"
 
 	"github.com/learning_golang/topics/profiling/project/search"
 )
 
-// staticHandler 处理静态文件
-func staticHandler(_ context.Context, w http.ResponseWriter, r *http.Request) error {
-	fs := http.FileServer(http.Dir("static"))
-	http.StripPrefix("/static/", fs).ServeHTTP(w, r)
-
-	return nil
-}
-
 // indexHandler 显示首页界面
-func indexHandler(_ context.Context, w http.ResponseWriter, r *http.Request) error {
+func indexHandler(w http.ResponseWriter, r *http.Request) {
 	fvs, _ := formValues(r)
 
-	return respondHtml(w, fvs)
+	respondHtml(w, fvs)
 }
 
 // searchHandler 接受搜索请求，响应查找结果页面
-func searchHandler(_ context.Context, w http.ResponseWriter, r *http.Request) error {
+func searchHandler(w http.ResponseWriter, r *http.Request) {
 	fvs, searchOpt := formValues(r)
-
-	// 处理搜索任务
+	// 执行搜索
 	results := search.Submit(searchOpt)
 
-	return respondHtml(w, fvs, results...)
+	respondHtml(w, fvs, results...)
 }
 
 // formValues 获取提交参数
@@ -58,27 +49,29 @@ func formValues(r *http.Request) (map[string]interface{}, search.Options) {
 }
 
 // respondHtml 响应html页面数据
-func respondHtml(w http.ResponseWriter, params map[string]interface{}, results ...search.Result) error {
+func respondHtml(w http.ResponseWriter, params map[string]interface{}, results ...search.Result) {
 	if len(results) > 0 {
 		rssVars := map[string]interface{}{"Items": results}
 		rssHTML, err := execTemp(resultTemp, rssVars)
 		if err != nil {
-			return err
+			_, _ = fmt.Fprintln(w, err)
+			return
 		}
 		params["Results"] = template.HTML(rssHTML)
 	}
 
 	searchHTML, err := execTemp(searchTemp, params)
 	if err != nil {
-		return err
+		_, _ = fmt.Fprintln(w, err)
+		return
 	}
 	vars := map[string]interface{}{
 		"LayoutContent": template.HTML(searchHTML),
 	}
 	layout, err := execTemp(layoutTemp, vars)
 	if err != nil {
-		return err
+		_, _ = fmt.Fprintln(w, err)
+		return
 	}
-	_, err = w.Write(layout)
-	return err
+	_, _ = w.Write(layout)
 }
