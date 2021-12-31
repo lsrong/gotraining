@@ -91,7 +91,8 @@ If lots of time is spent in GC component, the program either allocates too many 
 ## Installing Tools
 
 **hey**  
-hey is a modern HTTP benchmarking tool capable of generating the load you need to run tests. It's built using the Go language and leverages goroutines for behind the scenes async IO and concurrency.
+hey is a modern HTTP benchmarking tool capable of generating the load you need to run tests. It's built using the Go language and leverages goroutines for behind the scenes async IO and concurrency.  
+
 hey 是一种现代 HTTP 基准测试工具，能够生成运行测试所需的负载。它是使用 Go 语言构建的，并利用 goroutines 在幕后实现异步 IO 和并发。
 
     go get -u github.com/rakyll/hey
