@@ -43,20 +43,17 @@ The package context defines the Context type, which carries deadlines, cancellat
 **_"Context values are for request-scoped data that passes through programs in a distributed system. Litmus test: Could it be an HTTP header?" - Sameer Ajmani_**
 
 [Leak Goroutine](example/leaking/leaking.go)   
-[Store / Retrieve context values](example1/example1.go) ([Go Playground](https://play.golang.org/p/xPyS_DsbKGL))  
-[WithCancel](example2/example2.go) ([Go Playground](https://play.golang.org/p/ubUSuXtsldm))  
-[WithDeadline](example3/example3.go) ([Go Playground](https://play.golang.org/p/o55vCa8cjIt))  
-[WithTimeout](example4/example4.go) ([Go Playground](https://play.golang.org/p/8RdBXtfDv1w))  
-[Request/Response](example5/example5.go) ([Go Playground](https://play.golang.org/p/9x4kBKO-Y6q)  
-[Cancellation](example6/example6.go) ([Go Playground](https://play.golang.org/p/PmhTXiCZUP1)
-
+[Store / Retrieve context values](example/example1/example1.go)   
+[WithCancel](example/example2/example2.go)   
+[WithDeadline](example/example3/example3.go)   
+[WithTimeout](example/example4/example4.go)   
+[Request/Response](example/example5/example5.go)  
+[Cancellation](example/example6/example6.go) 
 ## Exercises
 
 ### Exercise 1
 
 Use the template and follow the directions. You will be writing a web handler that performs a mock database call but will timeout based on a context if the call takes too long. You will also save state into the context.
 
-[Template](exercises/template1/template1.go) ([Go Playground](https://play.golang.org/p/jIkgYBhqMNy)) |
-[Answer](exercises/exercise1/exercise1.go) ([Go Playground](https://play.golang.org/p/J5j1ygl6LtN))
-___
-All material is licensed under the [Apache License Version 2.0, January 2004](http://www.apache.org/licenses/LICENSE-2.0).
+[Template](template/template.go) ([Go Playground](https://play.golang.org/p/jIkgYBhqMNy)) |
+[Answer](exercise/exercise.go)
