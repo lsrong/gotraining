@@ -20,6 +20,10 @@ func (n *Node) Data() interface{} {
 	return n.data
 }
 
+func (n *Node) Match(val interface{}) bool {
+	return n.data == val
+}
+
 type List struct {
 	size int
 	head *Node
