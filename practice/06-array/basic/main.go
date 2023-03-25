@@ -51,7 +51,7 @@ func testIterate() {
 	}
 }
 
-// 二维数组
+// ç
 func testMultiArrays() {
 	a := [2][3]int{
 		{0, 1, 2},
