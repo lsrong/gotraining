@@ -131,7 +131,7 @@ func sortMap() {
 		fmt.Printf("map[%d]=%s\n", mapKey, a[mapKey])
 	}
 }
-
+/*
 func main() {
 	initMap()
 	fmt.Println("------------")
@@ -149,3 +149,4 @@ func main() {
 	fmt.Println("------------")
 	sortMap()
 }
+*/

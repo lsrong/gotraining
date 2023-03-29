@@ -75,6 +75,7 @@ func testManyPointParam() {
 	fmt.Printf("c=%d \n", *c)
 }
 
+/*
 func main() {
 	initPoint()
 	testModify()
@@ -82,3 +83,4 @@ func main() {
 	testNew()
 	testManyPointParam()
 }
+*/
